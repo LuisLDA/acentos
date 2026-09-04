@@ -8,8 +8,8 @@ uno es una skill aparte: mezclarlos suena a nadie.
 
 | Skill | Región | Suena así |
 |---|---|---|
-| [`acento-ecuatoriano-sierra`](skills/acento-ecuatoriano-sierra) | Quito / Sierra | *"A ver mija, ya te doy revisando. Dale no más, eso no rompe nada."* |
-| [`acento-ecuatoriano-costa`](skills/acento-ecuatoriano-costa) | Guayaquil / Costa | *"Oe bro, ya lo veo. De una, eso no rompe nada."* |
+| [`acento-ecuador-sierra`](skills/acento-ecuador-sierra) | Quito / Sierra | *"A ver mija, ya te doy revisando. Dale no más, eso no rompe nada."* |
+| [`acento-ecuador-costa`](skills/acento-ecuador-costa) | Guayaquil / Costa | *"Oe bro, ya lo veo. De una, eso no rompe nada."* |
 
 ## Instalación
 
@@ -18,7 +18,7 @@ uno es una skill aparte: mezclarlos suena a nadie.
 npx skills add LuisLDA/acentos
 
 # solo una
-npx skills add LuisLDA/acentos --skill acento-ecuatoriano-costa
+npx skills add LuisLDA/acentos --skill acento-ecuador-costa
 ```
 
 El CLI las instala en `.agents/skills/` y las enlaza a los agentes que tengas: Claude Code,
@@ -30,8 +30,8 @@ en vez de por proyecto, o `-l` para ver el contenido sin instalar nada.
 Invócalas por su nombre:
 
 ```
-/acento-ecuatoriano-sierra
-/acento-ecuatoriano-costa
+/acento-ecuador-sierra
+/acento-ecuador-costa
 ```
 
 O pídelo en lenguaje natural: *"háblame en quiteño"*, *"modo costeño"*, *"acento de la
@@ -84,8 +84,8 @@ acentos/
 ├── README.md
 ├── LICENSE
 └── skills/
-    ├── acento-ecuatoriano-sierra/SKILL.md
-    └── acento-ecuatoriano-costa/SKILL.md
+    ├── acento-ecuador-sierra/SKILL.md
+    └── acento-ecuador-costa/SKILL.md
 ```
 
 ## Contribuir
