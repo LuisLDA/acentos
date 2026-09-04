@@ -1,86 +1,97 @@
-# 🇪🇨 acento-ecuatoriano
+# 🇪🇨 acentos
 
-Una **Agent Skill** que hace que tu agente de código hable como dev quiteño: cálido,
-directo, con el gerundio andino, los diminutivos y el "no más" atenuador — **sin perder
-ni un gramo de precisión técnica**.
+**Agent Skills** que le dan a tu agente de código un acento ecuatoriano de verdad — sin
+perder ni un gramo de precisión técnica.
 
-> A ver mija, ya le encontré. El problema está en `src/utils/post-media.ts:42`: esa URL
-> viene firmada y ya se venció, por eso te sale el placeholder gris. Ponte pilas con eso
-> porque en un listado de 30 días **la mayoría** está muerta, no es un caso raro.
+Ecuador no tiene un acento, tiene varios, y son **muy** distintos entre sí. Por eso cada
+uno es una skill aparte: mezclarlos suena a nadie.
+
+| Skill | Región | Suena así |
+|---|---|---|
+| [`acento-ecuatoriano-sierra`](skills/acento-ecuatoriano-sierra) | Quito / Sierra | *"A ver mija, ya te doy revisando. Dale no más, eso no rompe nada."* |
+| [`acento-ecuatoriano-costa`](skills/acento-ecuatoriano-costa) | Guayaquil / Costa | *"Oe bro, ya lo veo. De una, eso no rompe nada."* |
 
 ## Instalación
 
 ```bash
-npx skills add LuisLDA/acento-ecuatoriano
+# las dos
+npx skills add LuisLDA/acentos
+
+# solo una
+npx skills add LuisLDA/acentos --skill acento-ecuatoriano-costa
 ```
 
-El CLI la instala en `.agents/skills/` y la enlaza a los agentes que tengas: Claude Code,
-Codex, Cursor, Cline, Amp, Copilot y 70+ más. Para instalarla a nivel de usuario en vez de
-por proyecto, agrega `-g`.
-
-Ver el contenido sin instalar nada:
-
-```bash
-npx skills add LuisLDA/acento-ecuatoriano -l
-```
+El CLI las instala en `.agents/skills/` y las enlaza a los agentes que tengas: Claude Code,
+Codex, Cursor, Cline, Amp, Copilot y 70+ más. Agrega `-g` para instalar a nivel de usuario
+en vez de por proyecto, o `-l` para ver el contenido sin instalar nada.
 
 ## Uso
 
-Invócala por su nombre:
+Invócalas por su nombre:
 
 ```
-/acento-ecuatoriano
+/acento-ecuatoriano-sierra
+/acento-ecuatoriano-costa
 ```
 
-O simplemente pídelo en lenguaje natural: *"háblame en ecuatoriano"*, *"modo quiteño"*,
-*"respóndeme en criollo"*.
+O pídelo en lenguaje natural: *"háblame en quiteño"*, *"modo costeño"*, *"acento de la
+costa"*, *"habla como guayaco"*.
 
 Una vez activa, **el registro se mantiene para el resto de la sesión**. Para salir, di
 *"habla normal"* o *"modo neutro"*.
 
-## Qué la hace distinta
+## Qué las hace distintas
 
 El error clásico de una skill de acento es espolvorear tres palabras raras sobre español
-neutro — eso suena a turista. Esta skill pone el peso en la **sintaxis**, que es lo que de
-verdad hace ecuatoriano a un texto:
+neutro — eso suena a turista. Acá el peso está en la **sintaxis**, que es lo que de verdad
+marca la región.
 
-- **Gerundio andino** — "Ya te doy revisando el archivo", "Dame viendo si eso compila"
-- **"No más" atenuador** — "Dale no más, eso no rompe nada"
-- **"Pues" enclítico** — "Ya pues, eso era"
-- **"Le" pleonástico** — "Ya le arreglé al componente"
-- **Diminutivos de ritmo** — "un ratito", "ahicito", "un toquecito"
+**Sierra — atenúa.** Gerundio andino (*"ya te doy revisando"*), `no más` ablandador
+(*"dale no más"*), `pues` enclítico, `le` pleonástico (*"ya le arreglé al componente"*),
+diminutivos de ritmo (*"ahicito"*, *"un ratito"*) y léxico kichwa (*achachay*, *guagua*).
 
-La jerga (`mija`, `ponte pilas`, `chévere`, `bacán`, `de una`, `chuta`, `ñaño`, `full`,
-`de ley`, `cachar`, `camellar`, `chulla`, `yapa`) es el adorno, no la estructura.
+**Costa — afirma.** Frases cortas y frontales, vocativos constantes (*bro*, *loco*,
+*ñaño*), interjección de arranque (*¡oe!*, *¡ve!*), elisión lexicalizada (*pa'*, *na' que
+ver*) y su propio léxico (*qué nota*, *fresco*, *ni de vainas*, *chendo*, *al pelo*).
+
+Cada skill lleva una sección explícita de **qué marcadores de la otra región tiene
+prohibidos**. Sin eso, las dos derivan al mismo español genérico.
 
 ## Los límites, que son la parte importante
 
-Esta skill es deliberadamente estricta en dos frentes:
+Las dos skills son deliberadamente estrictas en tres frentes:
 
-**1. El acento no llega a lo que se versiona.** Vive en la prosa que el agente te escribe
-a ti, y en ningún otro lado. Código, comentarios, mensajes de commit, docs, copy de
-producto (toasts, labels, prompts) y contenido para terceros conservan las reglas de tu
-proyecto. Un *"ponte pilas mija"* en un toast se va a producción y lo ve un cliente en
-México.
+**1. El acento no llega a lo que se versiona.** Vive en la prosa que el agente te escribe a
+ti, y en ningún otro lado. Código, comentarios, mensajes de commit, docs, copy de producto
+(toasts, labels, prompts) y contenido para terceros conservan las reglas de tu proyecto. Un
+*"ponte pilas mija"* en un toast se va a producción y lo ve un cliente en México.
 
-**2. La precisión gana siempre.** Los diagnósticos, las advertencias y los datos técnicos
-—rutas, comandos, mensajes de error, snippets— van literales. El registro cálido nunca
-suaviza una mala noticia: *"Ponte pilas mija, esto borra la tabla en producción"* es más
-fuerte que la versión neutra, no más débil.
+**2. La precisión gana siempre.** Diagnósticos, advertencias y datos técnicos —rutas,
+comandos, mensajes de error, snippets— van literales. El registro cálido nunca suaviza una
+mala noticia: *"Oe, pilas: esto borra la tabla en producción"* es más fuerte que la versión
+neutra, no más débil.
 
-Además hay una lista explícita de **términos vetados**: `longo`, `cholo`, `indio`, `mono`
-o `serrano` como insulto no son color local — son racismo y regionalismo con historia.
-Tampoco vulgaridad ni chistes de estereotipo: la gracia es hablar así, no burlarse de
-quien habla así.
+**3. Nada de burla ni de racismo.** Hay una lista explícita de términos vetados: `longo`,
+`cholo`, `indio`, `montubio` como insulto, y el par regional `mono` / `serrano`. No son
+color local, son racismo y regionalismo con historia. Tampoco vulgaridad, ni chistes de
+estereotipo — y la skill de la costa prohíbe transcribir la /s/ aspirada (*"loh maneh"*),
+que escrita se lee como caricatura y no como acento.
 
 ## Estructura
 
 ```
-acento-ecuatoriano/
-├── SKILL.md      # la skill
+acentos/
 ├── README.md
-└── LICENSE
+├── LICENSE
+└── skills/
+    ├── acento-ecuatoriano-sierra/SKILL.md
+    └── acento-ecuatoriano-costa/SKILL.md
 ```
+
+## Contribuir
+
+¿Falta un acento (manaba, lojano, esmeraldeño) o hay jerga mal usada? Los PRs son
+bienvenidos — sobre todo de hablantes nativos de cada región.
 
 ## Licencia
 
