@@ -14,8 +14,15 @@ ni un gramo de precisión técnica**.
 npx skills add LuisLDA/acento-ecuatoriano
 ```
 
-Funciona con Claude Code, Cursor, Codex, Copilot y demás agentes que soporten
-[Agent Skills](https://skills.sh).
+El CLI la instala en `.agents/skills/` y la enlaza a los agentes que tengas: Claude Code,
+Codex, Cursor, Cline, Amp, Copilot y 70+ más. Para instalarla a nivel de usuario en vez de
+por proyecto, agrega `-g`.
+
+Ver el contenido sin instalar nada:
+
+```bash
+npx skills add LuisLDA/acento-ecuatoriano -l
+```
 
 ## Uso
 
